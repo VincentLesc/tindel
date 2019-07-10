@@ -32,7 +32,7 @@ export default {
         ['CREATING_POST_SUCCESS'](state, post) {
             state.isLoading = false;
             state.error = null;
-            state.posts.unshift(post);
+            state.posts = state.posts.unshift(post)
         },
         ['CREATING_POST_ERROR'](state, error) {
             state.isLoading = false;
@@ -54,6 +54,18 @@ export default {
             state.error = error;
             state.posts = [];
         },
+        ['DELETING_POSTS_SUCCESS'](state, post) {
+            state.isLoading = false;
+            state.error = null;
+            state.posts = state.posts.filter(function(data){
+                return data !== post;
+            });
+        },
+        ['DELETING_POSTS_ERROR'](state, error) {
+            state.isLoading = false;
+            state.error = error;
+            state.posts = [];
+        },
     },
     actions: {
         createPost ({commit}, message) {
@@ -65,8 +77,11 @@ export default {
         fetchPosts ({commit}) {
             commit('FETCHING_POSTS');
             return PostAPI.getAll()
-                .then(res => commit('FETCHING_POSTS_SUCCESS', res.data))
+                .then(res => commit('FETCHING_POSTS_SUCCESS', res.data["hydra:member"]))
                 .catch(err => commit('FETCHING_POSTS_ERROR', err));
         },
+        deletePost ({commit}, id) {
+            return PostAPI.deleteOne(id)
+        }
     },
 }

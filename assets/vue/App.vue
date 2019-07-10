@@ -4,8 +4,11 @@
             <div class="inner">
                 <h3 class="masthead-brand">Cover</h3>
                 <nav class="nav nav-masthead justify-content-center">
-                    <router-link>
-                            <a class="nav-link active mr2" to="/home">Home</a>
+                    <router-link to="/home">
+                            <a class="nav-link active mr2">Home</a>
+                    </router-link>
+                    <router-link to="/posts">
+                        <a class="nav-link active mr2">Posts</a>
                     </router-link>
                     <a class="nav-link" href="#">Features</a>
                     <a class="nav-link" href="#">Contact</a>

@@ -32,7 +32,7 @@
         </div>
 
         <div v-else v-for="post in posts" class="row col">
-            <post :message="post.message"></post>
+            <post :post="post"></post>
         </div>
     </div>
 </template>
