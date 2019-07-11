@@ -21,13 +21,15 @@
             </div>
         </div>
 
-        <div v-else-if="!hasPosts" class="row col">
+        <div v-if="!hasPosts" class="row col">
             No posts!
         </div>
-        <div v-else class="row">
-            <div v-for="post in posts" class="col-md-4">
-                <post :post="post"></post>
-            </div>
+        <div v-else>
+            <transition-group name="list" tag="div" class="w-100 row m-0">
+                <div v-for="post in posts" v-bind:key="post.id" class="list-item col-4 p-1">
+                    <post :post="post"></post>
+                </div>
+            </transition-group>
         </div>
     </div>
 </template>
@@ -73,3 +75,13 @@
         },
     }
 </script>
+
+<style>
+    .list-enter-active, .list-leave-active {
+        transition: all 1s;
+    }
+    .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+</style>
