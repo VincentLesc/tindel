@@ -32,9 +32,7 @@ export default {
         ['CREATING_POST_SUCCESS'](state, post) {
             state.isLoading = false;
             state.error = null;
-            console.log(post);
             state.posts.unshift(post);
-            console.log(state.posts);
         },
         ['CREATING_POST_ERROR'](state, error) {
             state.isLoading = false;
@@ -83,7 +81,7 @@ export default {
         },
         deletePost ({commit}, id) {
             return PostAPI.deleteOne(id)
-                .then(res => commit('DELETING_POSTS_SUCCESS', id));
+                .then( commit('DELETING_POSTS_SUCCESS', id));
         }
     },
 }
