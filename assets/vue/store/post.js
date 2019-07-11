@@ -32,7 +32,9 @@ export default {
         ['CREATING_POST_SUCCESS'](state, post) {
             state.isLoading = false;
             state.error = null;
-            state.posts = state.posts.unshift(post)
+            console.log(post);
+            state.posts.unshift(post);
+            console.log(state.posts);
         },
         ['CREATING_POST_ERROR'](state, error) {
             state.isLoading = false;
@@ -48,18 +50,17 @@ export default {
             state.isLoading = false;
             state.error = null;
             state.posts = posts;
+            console.log(posts);
         },
         ['FETCHING_POSTS_ERROR'](state, error) {
             state.isLoading = false;
             state.error = error;
             state.posts = [];
         },
-        ['DELETING_POSTS_SUCCESS'](state, post) {
+        ['DELETING_POSTS_SUCCESS'](state, postId) {
             state.isLoading = false;
             state.error = null;
-            state.posts = state.posts.filter(function(data){
-                return data !== post;
-            });
+            state.posts = state.posts.filter(post => post.id !== postId);
         },
         ['DELETING_POSTS_ERROR'](state, error) {
             state.isLoading = false;
@@ -82,6 +83,7 @@ export default {
         },
         deletePost ({commit}, id) {
             return PostAPI.deleteOne(id)
+                .then(res => commit('DELETING_POSTS_SUCCESS', id));
         }
     },
 }
