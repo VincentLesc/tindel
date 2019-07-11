@@ -1,11 +1,9 @@
 <template>
-
         <div class="card w-100 mt-2" v-on:click="deletePost(post.id)">
-            <div class="card-body">
+            <div class="card-body" style="background-color: black">
                 {{ post.message }}
             </div>
         </div>
-
 </template>
 
 <script>

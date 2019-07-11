@@ -2,27 +2,26 @@
     <div class="cover-container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="inner">
-                        <h3 class="masthead-brand">Cover</h3>
-                        <nav class="nav nav-masthead justify-content-center">
-                            <router-link to="/home">
-                                <a class="nav-link active mr2">Home</a>
-                            </router-link>
-                            <router-link to="/posts">
-                                <a class="nav-link active mr2">Posts</a>
-                            </router-link>
-                            <a class="nav-link" href="#">Features</a>
-                            <a class="nav-link" href="#">Contact</a>
-                        </nav>
-                    </div>
+                <div class="inner col-md-8 offset-md-2">
+                    <h3 class="masthead-brand">Cover</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <router-link to="/home">
+                            <a class="nav-link mr-2">Home</a>
+                        </router-link>
+                        <router-link to="/posts">
+                            <a class="nav-link mr-2">Posts</a>
+                        </router-link>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Contact</a>
+                    </nav>
                 </div>
             </div>
         </header>
-
-        <main role="main">
-            <div class="col-md-8 offset-md-2">
-                <router-view></router-view>
+        <main role="main" class="inner cover">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <router-view></router-view>
+                </div>
             </div>
         </main>
         <div></div>
@@ -84,6 +83,10 @@
 
     .cover-container {
         max-width: 42em;
+    }
+
+    h1{
+        font-size: 1rem;
     }
 
 

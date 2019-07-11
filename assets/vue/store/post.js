@@ -48,7 +48,6 @@ export default {
             state.isLoading = false;
             state.error = null;
             state.posts = posts;
-            console.log(posts);
         },
         ['FETCHING_POSTS_ERROR'](state, error) {
             state.isLoading = false;
