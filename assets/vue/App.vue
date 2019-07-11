@@ -17,7 +17,6 @@
                 </div>
             </div>
         </header>
-
         <main role="main" class="inner cover">
             <div class="row">
                 <div class="col-md-8 offset-md-2">

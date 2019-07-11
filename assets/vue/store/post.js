@@ -80,7 +80,7 @@ export default {
         },
         deletePost ({commit}, id) {
             return PostAPI.deleteOne(id)
-                .then(res => commit('DELETING_POSTS_SUCCESS', id));
+                .then( commit('DELETING_POSTS_SUCCESS', id));
         }
     },
 }
