@@ -19,6 +19,7 @@
         <main role="main" class="inner cover">
             <router-view></router-view>
         </main>
+        <div></div>
 
         <footer class="mastfoot mt-auto">
             <div class="inner">
