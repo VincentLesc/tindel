@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73f738dc-8282-4067-a6bb-371a534af9a0" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/assets/vue/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/vue/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vue/index.js" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/assets/vue/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vue/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/vue/store/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vue/store/post.js" afterDir="false" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +52,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/Controller/IndexController.php">
+=======
         <entry file="file://$PROJECT_DIR$/assets/vue/views/Posts.vue">
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-53">
               <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
@@ -56,10 +65,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/assets/vue/router/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/vue/views/Home.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/vue/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+=======
         <entry file="file://$PROJECT_DIR$/assets/vue/components/Post.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -77,12 +114,22 @@
       <list>
         <option value="$PROJECT_DIR$/.env.local" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/assets/vue/App.vue" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+=======
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/assets/vue/store/index.js" />
         <option value="$PROJECT_DIR$/assets/vue/index.js" />
         <option value="$PROJECT_DIR$/src/Controller/IndexController.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/assets/vue/router/index.js" />
+        <option value="$PROJECT_DIR$/assets/vue/views/Home.vue" />
+        <option value="$PROJECT_DIR$/assets/vue/index.js" />
+=======
         <option value="$PROJECT_DIR$/assets/vue/views/Home.vue" />
         <option value="$PROJECT_DIR$/assets/vue/router/index.js" />
         <option value="$PROJECT_DIR$/src/Entity/Post.php" />
@@ -91,6 +138,7 @@
         <option value="$PROJECT_DIR$/assets/vue/api/post.js" />
         <option value="$PROJECT_DIR$/assets/vue/App.vue" />
         <option value="$PROJECT_DIR$/assets/vue/store/post.js" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
       </list>
     </option>
   </component>
@@ -239,6 +287,8 @@
               <item name="tindel" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
             </path>
             <path>
               <item name="tindel" type="b2602c69:ProjectViewProjectNode" />
@@ -302,6 +352,7 @@
               <item name="tindel" type="b2602c69:ProjectViewProjectNode" />
               <item name="tindel" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
             </path>
           </expand>
           <select />
@@ -346,11 +397,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562770531645</updated>
-      <workItem from="1562770532699" duration="2320000" />
+      <workItem from="1562770532699" duration="2573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="2573000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1987" y="-2" width="1853" height="1082" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.33053514" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+=======
     <option name="totallyTimeSpent" value="14306000" />
   </component>
   <component name="ToolWindowManager">
@@ -360,6 +427,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -459,6 +527,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/assets/vue/App.vue">
+=======
     <entry file="file://$PROJECT_DIR$/assets/vue/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -470,6 +541,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vuex/types/index.d.ts">
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
@@ -486,6 +558,32 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/assets/vue/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/vue/views/Home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/vue/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+=======
     <entry file="file://$PROJECT_DIR$/assets/vue/views/Posts.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53">
@@ -511,6 +609,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+>>>>>>> 6f07fae6e9257339c4364033ea43be882bd0b79e
         </state>
       </provider>
     </entry>
