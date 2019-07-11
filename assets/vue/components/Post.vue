@@ -1,9 +1,11 @@
 <template>
-    <div class="card w-100 mt-2" v-on:click="deletePost(post.id)">
-        <div class="card-body" style="background-color: black">
-            {{ post.message }}
+
+        <div class="card w-100 mt-2" v-on:click="deletePost(post.id)">
+            <div class="card-body">
+                {{ post.message }}
+            </div>
         </div>
-    </div>
+
 </template>
 
 <script>
@@ -17,3 +19,11 @@
         }
     }
 </script>
+
+<style scoped>
+    .card {
+        background-color: white;
+        color: black;
+    }
+
+</style>

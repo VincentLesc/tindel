@@ -30,9 +30,10 @@
         <div v-else-if="!hasPosts" class="row col">
             No posts!
         </div>
-
-        <div v-else v-for="post in posts" class="row col">
-            <post :post="post"></post>
+        <div v-else class="row">
+            <div v-for="post in posts" class="col-md-4">
+                <post :post="post"></post>
+            </div>
         </div>
     </div>
 </template>
