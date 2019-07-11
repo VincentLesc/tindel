@@ -1,19 +1,13 @@
 <template>
     <div>
-        <div class="row col">
-            <h1>Posts</h1>
+        <div class="row">
+            <h1 class="text-center w-100">Posts</h1>
         </div>
 
-        <div class="row col">
-            <form>
-                <div class="form-row">
-                    <div class="col-8">
-                        <input v-model="message" type="text" class="form-control">
-                    </div>
-                    <div class="col-4">
-                        <button @click="createPost()" :disabled="message.length === 0 || isLoading" type="button" class="btn btn-primary">Create</button>
-                    </div>
-                </div>
+        <div class="row ml-0">
+            <form @submit="createPost()" class="w-100 mr-3">
+                <input  v-model="message" type="text" class="form-control w-100 mb-1" placeholder="Message">
+                <button @click="createPost()" :disabled="message.length === 0 || isLoading" type="button" class="btn btn-primary w-100">Create</button>
             </form>
         </div>
 
@@ -30,9 +24,10 @@
         <div v-else-if="!hasPosts" class="row col">
             No posts!
         </div>
-
-        <div v-else v-for="post in posts" class="row col">
-            <post :post="post"></post>
+        <div v-else class="row">
+            <div v-for="post in posts" class="col-md-4">
+                <post :post="post"></post>
+            </div>
         </div>
     </div>
 </template>

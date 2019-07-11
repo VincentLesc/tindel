@@ -32,9 +32,7 @@ export default {
         ['CREATING_POST_SUCCESS'](state, post) {
             state.isLoading = false;
             state.error = null;
-            console.log(post);
             state.posts.unshift(post);
-            console.log(state.posts);
         },
         ['CREATING_POST_ERROR'](state, error) {
             state.isLoading = false;
@@ -50,7 +48,6 @@ export default {
             state.isLoading = false;
             state.error = null;
             state.posts = posts;
-            console.log(posts);
         },
         ['FETCHING_POSTS_ERROR'](state, error) {
             state.isLoading = false;
