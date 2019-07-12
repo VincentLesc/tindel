@@ -61,10 +61,10 @@
                 return this.errors.length !== 0;
             },
             performRegister(){
+                let user = {email: this.login, plainPassword: this.password};
                 this.$store.dispatch(
                     'security/registerUser',
-                    this.login,
-                    this.password
+                    user
                 ).then(() => console.log('toto'))
             }
 

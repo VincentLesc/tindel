@@ -21,8 +21,8 @@ export default {
 
     },
     actions: {
-        registerUser({commit}, login, password ) {
-            return SecurityAPI.register(login, password)
+        registerUser({commit}, payload ) {
+            return SecurityAPI.register(payload.email, payload.plainPassword)
                 .then(res => console.log(res.data))
         }
     },
