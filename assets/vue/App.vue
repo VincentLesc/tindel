@@ -150,4 +150,13 @@
     .mastfoot {
         color: rgba(255, 255, 255, .5);
     }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: -1px;
+        border-radius: 0;
+    }
 </style>

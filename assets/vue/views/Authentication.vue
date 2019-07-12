@@ -43,7 +43,7 @@
     }
     p:hover {
         color: #0F83E8;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     p {
         transition: 0.5s;
