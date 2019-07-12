@@ -4,22 +4,63 @@
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input v-on:keyup="controlPasswordFormat()" v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <label for="inputControlPassword" class="sr-only">Password</label>
-        <input type="password" id="inputControlPassword" class="form-control" placeholder="Repeat Password" required>
-        <div class="checkbox mb-3">
+        <input v-on:keyup="controlPasswordEquals()" v-model="passwordConfirm" type="password" id="inputControlPassword" class="form-control" placeholder="Repeat Password" required>
+        <div v-for="error in errors">
+          <alert :context="error.context" :message="error.message"></alert>
+        </div>
+            <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" :disabled="disableSubmit()">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
     </form>
 </template>
 
 <script>
+
+    import Alert from '../components/Alert';
+
     export default {
-        name: 'register'
+        name: 'register',
+        data () {
+            return {
+                password: '',
+                passwordConfirm: '',
+                errors: [],
+            };
+        },
+        components:{
+          Alert
+        },
+        methods: {
+            controlPasswordEquals(){
+                this.errors = [];
+                this.password === this.passwordConfirm
+                    ? this.errors.length = 0
+                    : this.errors.push({context:'alert-danger', message:'Passwords do not matches'});
+
+            },
+            controlPasswordFormat(){
+                this.errors = [];
+                var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+                var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+                if(strongRegex.test(this.password)) {
+                    this.errors.push({context:'alert-success', message:'Strong password'})
+                } else if (mediumRegex.test(this.password)) {
+                    this.errors.push({context:'alert-warning', message:'Password could be stronger'})
+                } else {
+                    this.errors.push({context:'alert-danger', message:'Password must be stronger'})
+                }
+            },
+            disableSubmit(){
+                return this.errors.length !== 0;
+            }
+        }
+
     }
 </script>
 
