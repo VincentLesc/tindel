@@ -1,12 +1,14 @@
 <template>
-    <div class="flex-row">
-        <div v-if="login" class="main text-center">
+
+        <div v-if="login" class="main text-center flex-column">
+            <p @click="login=false">Not account yet ? create one</p>
             <login></login>
         </div>
-        <div v-else class="main">
+        <div v-else class="main text-center flex-column">
+            <p @click="login=true">Already an account ? Login here !</p>
             <register></register>
         </div>
-    </div>
+
 </template>
 
 <script>
@@ -38,5 +40,12 @@
         padding-top: 40px;
         padding-bottom: 40px;
         background-color: transparent;
+    }
+    p:hover {
+        color: #0F83E8;
+        font-size: 1.5rem;
+    }
+    p {
+        transition: 0.5s;
     }
 </style>
