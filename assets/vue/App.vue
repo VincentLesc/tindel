@@ -11,6 +11,9 @@
                         <router-link to="/posts">
                             <a class="nav-link mr-2">Posts</a>
                         </router-link>
+                        <router-link to="/authentication">
+                            <a class="nav-link mr-2">Login</a>
+                        </router-link>
                         <a class="nav-link" href="#">Features</a>
                         <a class="nav-link" href="#">Contact</a>
                     </nav>
@@ -19,7 +22,7 @@
         </header>
 
         <main role="main" class="inner cover">
-            <div class="row">
+            <div class="row mainly-row">
                 <div class="col-md-8 offset-md-2">
                     <router-view></router-view>
                 </div>
@@ -73,7 +76,12 @@
         height: 100%;
         background-color: #333;
     }
-
+    main {
+        height: 100%;
+    }
+    .mainly-row {
+        height: 100%;
+    }
     body {
         display: -ms-flexbox;
         display: flex;
