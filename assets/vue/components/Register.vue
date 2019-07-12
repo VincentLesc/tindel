@@ -2,11 +2,11 @@
     <form class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input v-model="login" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input v-on:keyup="controlPasswordFormat()" v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input v-on:keyup="controlPasswordFormat" v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <label for="inputControlPassword" class="sr-only">Password</label>
-        <input v-on:keyup="controlPasswordEquals()" v-model="passwordConfirm" type="password" id="inputControlPassword" class="form-control" placeholder="Repeat Password" required>
+        <input v-on:keyup="controlPasswordEquals" v-model="passwordConfirm" type="password" id="inputControlPassword" class="form-control" placeholder="Repeat Password" required>
         <div v-for="error in errors">
           <alert :context="error.context" :message="error.message"></alert>
         </div>
@@ -15,7 +15,7 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" :disabled="disableSubmit()">Sign in</button>
+        <button v-on:click="performRegister" :disabled="disableSubmit()" class="btn btn-lg btn-primary btn-block">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
     </form>
 </template>
@@ -28,6 +28,7 @@
         name: 'register',
         data () {
             return {
+                login: '',
                 password: '',
                 passwordConfirm: '',
                 errors: [],
@@ -58,7 +59,15 @@
             },
             disableSubmit(){
                 return this.errors.length !== 0;
+            },
+            performRegister(){
+                this.$store.dispatch(
+                    'security/registerUser',
+                    this.login,
+                    this.password
+                ).then(() => console.log('toto'))
             }
+
         }
 
     }
