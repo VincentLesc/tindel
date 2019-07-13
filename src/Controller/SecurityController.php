@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Profile;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -53,7 +54,10 @@ class SecurityController extends AbstractController
         $user = new User();
         $user->setEmail($data->email);
         $user->setPlainPassword($data->plainPassword);
+        $profile = new Profile();
+        $user->setProfile($profile);
         $manager->persist($user);
+        $manager->persist($profile);
         $manager->flush();
 
         $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
