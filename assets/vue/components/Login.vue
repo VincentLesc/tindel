@@ -22,8 +22,6 @@
 </script>
 
 <style scoped>
-
-
     .form-signin {
         width: 100%;
         max-width: 330px;
@@ -43,14 +41,8 @@
     .form-signin .form-control:focus {
         z-index: 2;
     }
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    .form-signin input[type="password"] {
+    .form-signin input[type="password"]:last-of-type {
         margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+        border-radius: 0;
     }
 </style>

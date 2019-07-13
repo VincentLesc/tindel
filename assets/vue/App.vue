@@ -1,7 +1,7 @@
 <template>
     <div class="cover-container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead">
-            <div class="row">
+            <div class="row d-none d-sm-block">
                 <div class="inner col-md-8 offset-md-2">
                     <h3 class="masthead-brand">Cover</h3>
                     <nav class="nav nav-masthead justify-content-center">
@@ -18,6 +18,9 @@
                         <a class="nav-link" href="#">Contact</a>
                     </nav>
                 </div>
+            </div>
+            <div class="row d-block d-sm-none text-center">
+                <h3 class="masthead-brand">Cover</h3>
             </div>
         </header>
         <main role="main" class="inner cover">
@@ -75,9 +78,7 @@
         height: 100%;
         background-color: #333;
     }
-    main {
-        height: 100%;
-    }
+
     .mainly-row {
         height: 100%;
     }
@@ -149,5 +150,14 @@
     }
     .mastfoot {
         color: rgba(255, 255, 255, .5);
+    }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-radius: 0;
+    }
+    .form-signin input[type="password"] {
+        margin-bottom: -1px;
+        border-radius: 0;
     }
 </style>
