@@ -2,6 +2,7 @@
         <div class="card w-100 mt-2" v-on:click="deletePost(post.id)">
             <div class="card-body">
                 {{ post.message }}
+                {{ post.author.title}}
             </div>
         </div>
 </template>

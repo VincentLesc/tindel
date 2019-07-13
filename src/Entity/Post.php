@@ -11,8 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
- *     attributes={"order"={"createdAt":"DESC"}}
- *     normalizationContext={"groups"={"post"}}
+ *     attributes={"order"={"createdAt":"DESC"}},
+ *     normalizationContext={"groups"={"post"}},
  *     collectionOperations={
  *         "post"={"access_control"="is_granted('ROLE_USER')"},
  *         "get"
@@ -26,21 +26,21 @@ class Post
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @Groups({"book"})
+     * @Groups({"post"})
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
-     * @Groups({"book"})
+     * @Groups({"post"})
      * @Assert\NotBlank
      */
     private $message;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"book"})
+     * @Groups({"post"})
      */
     private $createdAt;
 
@@ -50,6 +50,7 @@ class Post
     private $updatedAt;
 
     /**
+     * @Groups({"post"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Profile", inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
      */
