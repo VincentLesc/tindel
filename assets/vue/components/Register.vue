@@ -15,7 +15,7 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button v-on:click="performRegister" :disabled="disableSubmit()" class="btn btn-lg btn-primary btn-block">Sign in</button>
+        <div v-on:click="performRegister" :disabled="disableSubmit()" class="btn btn-lg btn-primary btn-block">Sign in</div>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
     </form>
 </template>
@@ -65,7 +65,15 @@
                 this.$store.dispatch(
                     'security/registerUser',
                     user
-                ).then(() => console.log('toto'))
+                ).then(() => {
+                    if (!this.$store.getters['security/hasError']) {
+                        if (typeof redirect !== 'undefined') {
+                            this.$router.push({path: redirect});
+                        } else {
+                            this.$router.push({path: '/home'});
+                        }
+                    }
+                });
             }
 
         }

@@ -9,5 +9,18 @@ export default {
                 plainPassword: password
             }
         )
+    },
+    login(login, password) {
+        return axios.post(
+            '/api/security/login',
+            {
+                "security": {
+                    "credentials": {
+                        "login": login,
+                        "password": password
+                    }
+                }
+            }
+        )
     }
 }

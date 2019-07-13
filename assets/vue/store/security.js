@@ -31,7 +31,7 @@ export default {
             state.hasError = null;
             state.error = null;
             state.isAuthenticated = true;
-            state.userId = payload.userId;
+            state.userId = payload.id;
             console.log(state);
         },
         ['PROVIDING_DATA_ON_REFRESH_SUCCESS'](state, payload) {
@@ -48,6 +48,10 @@ export default {
         },
         onRefresh({commit}, payload) {
             commit('PROVIDING_DATA_ON_REFRESH_SUCCESS', payload);
+        },
+        loginUser({commit}, payload) {
+            return SecurityAPI.login(payload.email, payload.plainPassword)
+                .then(res => commit('AUTHENTICATION_SUCCESS', res.data))
         },
     },
 }

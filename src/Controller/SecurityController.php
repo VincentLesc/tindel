@@ -16,6 +16,8 @@ class SecurityController extends AbstractController
 {
     /**
      * @Route("/api/security/login", name="login", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
      */
     public function login(Request $request)
     {
@@ -39,6 +41,9 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/api/security/register", name="user_register")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @return JsonResponse
      */
     public function register(Request $request, ObjectManager $manager)
     {
@@ -57,7 +62,7 @@ class SecurityController extends AbstractController
         $response = json_encode(
             [
                 'roles' => $user->getRoles(),
-                'userId' => $user->getId()
+                'id' => $user->getId()
             ]
         );
 
