@@ -3,12 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource(attributes={"order"={"createdAt":"DESC"}})
+ * @ApiResource(
+ *     attributes={"order"={"createdAt":"DESC"}}
+ *     normalizationContext={"groups"={"post"}}
+ *     )
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -17,18 +21,21 @@ class Post
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @Groups({"book"})
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @Groups({"book"})
      * @Assert\NotBlank
      */
     private $message;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"book"})
      */
     private $createdAt;
 
