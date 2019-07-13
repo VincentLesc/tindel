@@ -6,12 +6,17 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
  *     attributes={"order"={"createdAt":"DESC"}}
  *     normalizationContext={"groups"={"post"}}
+ *     collectionOperations={
+ *         "post"={"access_control"="is_granted('ROLE_USER')"},
+ *         "get"
+ *     }
  *     )
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
@@ -43,6 +48,12 @@ class Post
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profile", inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
 
     public function getId(): ?int
     {
@@ -89,6 +100,18 @@ class Post
     public function setUpdatedAt(): self
     {
         $this->updatedAt = Carbon::now();
+
+        return $this;
+    }
+
+    public function getAuthor(): ?Profile
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Profile $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

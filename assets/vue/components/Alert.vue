@@ -12,4 +12,12 @@
     }
 </script>
 
+<style>
+    .alert {
+        color: black;
+        border: none;
+        text-shadow: none;
+    }
+</style>
+
 

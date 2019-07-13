@@ -11,9 +11,12 @@
                         <router-link to="/posts">
                             <a class="nav-link mr-2">Posts</a>
                         </router-link>
-                        <router-link to="/authentication">
+                        <router-link to="/authentication" v-if="!isAuthenticated">
                             <a class="nav-link mr-2">Login</a>
                         </router-link>
+                        <li v-if="isAuthenticated">
+                            <a class="nav-link" href="/api/security/logout">Logout</a>
+                        </li>
                         <a class="nav-link" href="#">Features</a>
                         <a class="nav-link" href="#">Contact</a>
                     </nav>
@@ -43,6 +46,18 @@
 <script>
     export default {
         name: 'app',
+        created () {
+            let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
+                roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
+
+            let payload = {isAuthenticated: isAuthenticated, roles: roles};
+            this.$store.dispatch('security/onRefresh', payload);
+        },
+        computed: {
+            isAuthenticated () {
+                return this.$store.getters['security/isAuthenticated']
+            },
+        },
     }
 </script>
 
