@@ -30,3 +30,13 @@ services:
         class: App\Security\HashPasswordListener
         tags:
             - { name: doctrine.event_subscriber }
+
+    app.post.listener:
+        class: App\EventListener\PostListener
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app.user.listener:
+        class: App\EventListener\UserListener
+        tags:
+            - { name: doctrine.event_subscriber }

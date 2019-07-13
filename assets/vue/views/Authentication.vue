@@ -26,7 +26,18 @@
         components: {
             Login,
             Register
-        }
+        },
+        created () {
+            let redirect = this.$route.query.redirect;
+
+            if (this.$store.getters['security/isAuthenticated']) {
+                if (typeof redirect !== 'undefined') {
+                    this.$router.push({path: redirect});
+                } else {
+                    this.$router.push({path: '/home'});
+                }
+            }
+        },
     }
 </script>
 

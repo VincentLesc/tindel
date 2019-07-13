@@ -4,7 +4,7 @@
             <h1 class="text-center w-100">Posts</h1>
         </div>
 
-        <div class="row ml-0">
+        <div v-if="isAuthenticated" class="row ml-0">
             <form @submit="createPost()" class="w-100 mr-3">
                 <input  v-model="message" type="text" class="form-control w-100 mb-1" placeholder="Message">
                 <button @click="createPost()" :disabled="message.length === 0 || isLoading" type="button" class="btn btn-primary w-100">Create</button>
@@ -66,6 +66,9 @@
             posts () {
                 return this.$store.getters['post/posts'];
             },
+            isAuthenticated () {
+                return this.$store.getters['security/isAuthenticated'];
+            }
         },
         methods: {
             createPost () {
