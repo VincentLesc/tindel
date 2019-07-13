@@ -10,19 +10,33 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
+        <div v-if="hasError">
+            <alert context="alert-danger" message="Invalid Credentials"></alert>
+        </div>
         <div v-on:click="performLogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</div>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
     </form>
 </template>
 
 <script>
+
+    import Alert from '../components/Alert';
+
     export default {
         name: 'login',
+        components: {
+            Alert
+        },
         data () {
             return {
                 email : '',
                 plainPassword: ''
             }
+        },
+        computed: {
+            hasError() {
+                return this.$store.getters['security/hasError'];
+            },
         },
         methods: {
             performLogin(){

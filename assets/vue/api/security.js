@@ -22,5 +22,13 @@ export default {
                 }
             }
         )
+    },
+    isUnique(login) {
+        return axios.post(
+            'api/security/unique',
+            {
+                email:login
+            }
+        )
     }
 }

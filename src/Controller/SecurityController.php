@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -45,10 +46,10 @@ class SecurityController extends AbstractController
      * @param ObjectManager $manager
      * @return JsonResponse
      */
-    public function register(Request $request, ObjectManager $manager)
+    public function register(Request $request, ObjectManager $manager, UserRepository $userRepository)
     {
-        $request = $request->getContent();
-        $data = json_decode($request);
+        $data = json_decode($request->getContent());
+
         $user = new User();
         $user->setEmail($data->email);
         $user->setPlainPassword($data->plainPassword);
@@ -65,8 +66,25 @@ class SecurityController extends AbstractController
                 'id' => $user->getId()
             ]
         );
+        $status = 200;
 
         return new JsonResponse($response, 200);
     }
+
+    /**
+     * @Route("/api/security/unique", name="user_unique")
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @return JsonResponse
+     */
+    public function isUnique(Request $request, UserRepository $userRepository)
+    {
+        $data = json_decode($request->getContent());
+        $bool = !$userRepository->findOneBy(['email'=>$data->email]);
+        $response = $bool;
+        return new JsonResponse($response, 200);
+    }
+
+
 
 }
