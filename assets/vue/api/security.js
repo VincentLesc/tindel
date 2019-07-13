@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     register(login, password) {
         return axios.post(
-            '/api/users',
+            '/api/security/register',
             {
                 email: login,
                 plainPassword: password

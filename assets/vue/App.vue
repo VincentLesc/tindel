@@ -43,6 +43,18 @@
 <script>
     export default {
         name: 'app',
+        created () {
+            let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
+                roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
+
+            let payload = {isAuthenticated: isAuthenticated, roles: roles};
+            this.$store.dispatch('security/onRefresh', payload);
+        },
+        computed: {
+            isAuthenticated () {
+                return this.$store.getters['security/isAuthenticated']
+            },
+        },
     }
 </script>
 

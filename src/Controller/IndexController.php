@@ -12,6 +12,13 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        return $this->render('base.html.twig', []);
+        $user = $this->getUser();
+        return $this->render(
+            'base.html.twig',
+            [
+                'isAuthenticated' => json_encode(!empty($user)),
+                'roles' => json_encode(!empty($user) ? $user->getRoles() : []),
+            ]
+        );
     }
 }
