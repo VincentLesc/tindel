@@ -55,6 +55,7 @@
 
             let payload = {isAuthenticated: isAuthenticated, roles: roles};
             this.$store.dispatch('security/onRefresh', payload);
+            this.$store.dispatch('userProfile/fetchProfile');
         },
         computed: {
             isAuthenticated () {
@@ -74,16 +75,6 @@
     a:focus,
     a:hover {
         color: #fff;
-    }
-
-    /* Custom default button */
-    .btn-secondary,
-    .btn-secondary:hover,
-    .btn-secondary:focus {
-        color: #333;
-        text-shadow: none; /* Prevent inheritance from `body` */
-        background-color: #fff;
-        border: .05rem solid #fff;
     }
 
 
@@ -175,6 +166,10 @@
         border-radius: 0;
     }
     .form-signin input[type="password"] {
+        margin-bottom: -1px;
+        border-radius: 0;
+    }
+    .form-control input[type="text"] {
         margin-bottom: -1px;
         border-radius: 0;
     }

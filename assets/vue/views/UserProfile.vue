@@ -1,7 +1,5 @@
 <template>
-<profileForm>
-
-</profileForm>
+<profileForm></profileForm>
 </template>
 
 <script>
@@ -12,11 +10,6 @@
         name: 'userProfile',
         components: {
           ProfileForm
-        },
-        data () {
-            return {
-
-            }
         }
     }
 </script>
