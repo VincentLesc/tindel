@@ -11,6 +11,9 @@
                         <router-link to="/posts">
                             <a class="nav-link mr-2">Posts</a>
                         </router-link>
+                        <router-link to="/user/profile" v-if="isAuthenticated">
+                            <a class="nav-link mr-2">MyProfile</a>
+                        </router-link>
                         <router-link to="/authentication" v-if="!isAuthenticated">
                             <a class="nav-link mr-2">Login</a>
                         </router-link>
