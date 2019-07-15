@@ -21,26 +21,7 @@
                 </v-btn>
             </v-toolbar-items>
         </v-toolbar>
-        <v-content>
-            <v-container fluid fill-height>
-                <v-layout justify-center align-center>
-                    <v-flex shrink>
-                        <v-tooltip right>
-                            <v-btn
-                                    icon
-                                    large
-                                    :href="source"
-                                    target="_blank"
-                                    slot="activator"
-                            >
-                                <v-icon large>code</v-icon>
-                            </v-btn>
-                            <span>Source</span>
-                        </v-tooltip>
-                    </v-flex>
-                    <router-view></router-view>                </v-layout>
-            </v-container>
-        </v-content>
+        <router-view></router-view>
         <v-footer app fixed>
             <span>&copy; 2017</span>
         </v-footer>

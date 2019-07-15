@@ -1,21 +1,26 @@
 <template>
-    <form class="form-signin w-100">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input v-model="plainPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <div v-if="hasError">
-            <alert context="alert-danger" message="Invalid Credentials"></alert>
-        </div>
-        <div v-on:click="performLogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</div>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-    </form>
+    <div>
+        <v-toolbar dark color="primary">
+            <v-toolbar-title>Login form</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+            <v-form>
+                <v-text-field v-model="email" prepend-icon="person" name="email" label="Login" type="text"></v-text-field>
+                <v-text-field v-model="plainPassword" prepend-icon="lock" name="plainPassword" label="Password" id="password" type="password"></v-text-field>
+            </v-form>
+            <v-alert
+                    :value="hasError"
+                    type="error"
+                    outline
+            >
+                Error
+            </v-alert>
+        </v-card-text>
+        <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" v-on:click="performLogin">Login</v-btn>
+        </v-card-actions>
+    </div>
 </template>
 
 <script>
@@ -57,29 +62,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .form-signin {
-        width: 100%;
-        max-width: 330px;
-        padding: 15px;
-        margin: auto;
-    }
-    .form-signin .checkbox {
-        font-weight: 400;
-    }
-    .form-signin .form-control {
-        position: relative;
-        box-sizing: border-box;
-        height: auto;
-        padding: 10px;
-        font-size: 16px;
-    }
-    .form-signin .form-control:focus {
-        z-index: 2;
-    }
-    .form-signin input[type="password"]:last-of-type {
-        margin-bottom: 10px;
-        border-radius: 0;
-    }
-</style>
