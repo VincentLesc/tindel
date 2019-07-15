@@ -1,61 +1,51 @@
 <template>
-    <div class="cover-container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead">
-            <div class="row d-none d-sm-block">
-                <div class="inner col-md-8 offset-md-2">
-                    <h3 class="masthead-brand">Cover</h3>
-                    <nav class="nav nav-masthead justify-content-center">
-                        <router-link to="/home">
-                            <a class="nav-link mr-2">Home</a>
-                        </router-link>
-                        <router-link to="/posts">
-                            <a class="nav-link mr-2">Posts</a>
-                        </router-link>
-                        <router-link to="/user/profile" v-if="isAuthenticated">
-                            <a class="nav-link mr-2">MyProfile</a>
-                        </router-link>
-                        <router-link to="/authentication" v-if="!isAuthenticated">
-                            <a class="nav-link mr-2">Login</a>
-                        </router-link>
-                        <li v-if="isAuthenticated">
-                            <a class="nav-link" href="/api/security/logout">Logout</a>
-                        </li>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Contact</a>
-                    </nav>
-                </div>
-            </div>
-            <div class="row d-block d-sm-none text-center">
-                <h3 class="masthead-brand">Cover</h3>
-            </div>
-        </header>
-        <main role="main" class="inner cover">
-            <div class="row mainly-row">
-                <div class="col-md-8 offset-md-2">
-                    <router-view></router-view>
-                </div>
-            </div>
-        </main>
-        <div></div>
+    <v-app id="inspire" dark>
+        <v-toolbar app fixed clipped-left>
+            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-toolbar-title>Application</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn flat>
+                    <router-link to="/home">Home</router-link>
+                </v-btn>
+                <v-btn flat>
+                    <router-link to="/posts">Posts </router-link>
+                </v-btn>
+                <v-btn  v-if="isAuthenticated">>
+                    <router-link to="/user/profile">User Profile
+                    </router-link>
+                </v-btn>
+                <v-btn  href="/api/security/logout" v-if="isAuthenticated">Log Out
 
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-        </footer>
-    </div>
+                </v-btn>
+                <v-btn  v-if="!isAuthenticated">
+                    <router-link to="/authentication">Login
+                    </router-link>
+                </v-btn>
+            </v-toolbar-items>
+        </v-toolbar>
+        <router-view></router-view>
+        <v-footer app fixed>
+            <span>&copy; 2017</span>
+        </v-footer>
+    </v-app>
 </template>
 
 <script>
     export default {
         name: 'app',
+        data: () => ({
+            drawer: true
+        }),
+        props: {
+            source: String
+        },
         created () {
             let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
                 roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
 
             let payload = {isAuthenticated: isAuthenticated, roles: roles};
             this.$store.dispatch('security/onRefresh', payload);
-            this.$store.dispatch('userProfile/fetchProfile');
         },
         computed: {
             isAuthenticated () {
@@ -66,111 +56,23 @@
 </script>
 
 <style>
+    @import "~vuetify/dist/vuetify.css";
     /*
      * Globals
      */
 
     /* Links */
-    a,
-    a:focus,
+    a {
+        text-decoration: none;
+        color: white !important;
+        -webkit-transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        -ms-transition-delay: 100ms;
+        -o-transition-delay: 100ms;
+        transition-delay: 100ms;
+    }
     a:hover {
-        color: #fff;
+        font-weight: bold;
     }
 
-
-    /*
-     * Base structure
-     */
-
-    html,
-    body {
-        height: 100%;
-        background-color: #333;
-    }
-
-    .mainly-row {
-        height: 100%;
-    }
-    body {
-        display: -ms-flexbox;
-        display: flex;
-        color: #fff;
-        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-    }
-
-    .cover-container {
-        max-width: 42em;
-    }
-
-    h1{
-        font-size: 1rem;
-    }
-
-
-    /*
-     * Header
-     */
-    .masthead {
-        margin-bottom: 2rem;
-    }
-
-    .masthead-brand {
-        margin-bottom: 0;
-    }
-
-    .nav-masthead .nav-link {
-        padding: .25rem 0;
-        font-weight: 700;
-        color: rgba(255, 255, 255, .5);
-        background-color: transparent;
-        border-bottom: .25rem solid transparent;
-    }
-
-    .nav-masthead .nav-link:hover,
-    .nav-masthead .nav-link:focus {
-        border-bottom-color: rgba(255, 255, 255, .25);
-    }
-
-    .nav-masthead .nav-link + .nav-link {
-        margin-left: 1rem;
-    }
-
-    .nav-masthead .active {
-        color: #fff;
-        border-bottom-color: #fff;
-    }
-
-    @media (min-width: 48em) {
-        .masthead-brand {
-            float: left;
-        }
-        .nav-masthead {
-            float: right;
-        }
-    }
-
-    .cover {
-        padding: 0 1.5rem;
-    }
-    .cover .btn-lg {
-        padding: .75rem 1.25rem;
-        font-weight: 700;
-    }
-    .mastfoot {
-        color: rgba(255, 255, 255, .5);
-    }
-
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-radius: 0;
-    }
-    .form-signin input[type="password"] {
-        margin-bottom: -1px;
-        border-radius: 0;
-    }
-    .form-control input[type="text"] {
-        margin-bottom: -1px;
-        border-radius: 0;
-    }
 </style>
