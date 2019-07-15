@@ -36,10 +36,8 @@ class UserController extends AbstractController
     {
         $profile = $this->getUser()->getProfile();
         $request = json_decode($request->getContent());
-        $profile->setTitle($request->title);
-        $profile->setDescription($request->description);
-        $manager->persist($profile);
-        $manager->flush();
+
+        $profile = $generator->setProfile($profile, $request);
 
         $data = $generator->encodeProfile($profile);
 

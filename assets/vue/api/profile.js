@@ -20,7 +20,9 @@ export default {
             '/api/user/profile/update',
             {
                 title : payload.title,
-                description: payload.description
+                description: payload.description,
+                ethnicity: payload.ethnicity,
+                birthdate: payload.birthdate
             }
         )
     }
