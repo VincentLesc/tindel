@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Security;
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource(
  *     attributes={"order"={"createdAt":"DESC"}},
+ *     normalizationContext={"groups"={"post"}},
  *     collectionOperations={
  *         "post"={"access_control"="is_granted('ROLE_USER')"},
  *         "get"
@@ -24,18 +26,21 @@ class Post
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @Groups({"post"})
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @Groups({"post"})
      * @Assert\NotBlank
      */
     private $message;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"post"})
      */
     private $createdAt;
 
@@ -45,6 +50,7 @@ class Post
     private $updatedAt;
 
     /**
+     * @Groups({"post"})
      * @ORM\ManyToOne(targetEntity="App\Entity\Profile", inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
      */
