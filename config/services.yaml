@@ -40,3 +40,4 @@ services:
         class: App\EventListener\UserListener
         tags:
             - { name: doctrine.event_subscriber }
+
