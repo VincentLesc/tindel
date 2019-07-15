@@ -15,6 +15,9 @@
                     <router-link to="/user/profile">User Profile
                     </router-link>
                 </v-btn>
+                <v-btn  href="/api/security/logout" v-if="isAuthenticated">Log Out
+
+                </v-btn>
                 <v-btn  v-if="!isAuthenticated">
                     <router-link to="/authentication">Login
                     </router-link>
