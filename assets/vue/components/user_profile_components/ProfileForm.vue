@@ -17,25 +17,44 @@
                 <span v-else class="input-group-text">Max length reached</span>
             </div>
         </div>
+        <div class="form-group">
+            <label for="ethnicitySelect" class="sr-only">Example select</label>
+            <select v-model="profile.ethnicity" class="form-control" id="ethnicitySelect">
+                <option v-for="e in ethnicity">{{e}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="birthdate" class="sr-only">Example select</label>
+            <input v-model="profile.birthdate" type="date" id="birthdate">
+        </div>
         <div v-if="updated">
-            <h2>Updated !</h2>
+            <alert context="alert-success mt-1" message="Updated"></alert>
         </div>
         <div v-on:click="update" class="btn btn-lg btn-primary btn-block">Update</div>
     </form>
 </template>
 
 <script>
+
+    import Alert from '../../components/Alert';
+    import Datetime from 'vue-date-picker';
+
     export default {
         name: 'profileForm',
         created () {
             this.$store.dispatch('userProfile/fetchProfile');
+        },
+        components: {
+            Alert,
+            Datetime
         },
         data: function () {
             return {
                 maxtitle: 32,
                 maxtotype : 0,
                 maxdescription: 500,
-                maxtotypeDescription: 0
+                maxtotypeDescription: 0,
+                ethnicity: ['European', 'Arabic', 'Latino'],
             }
         },
         computed: {
@@ -48,7 +67,7 @@
         },
         methods: {
             update() {
-                let payload = {title: this.profile.title, description: this.profile.description};
+                let payload = {title: this.profile.title, description: this.profile.description, ethnicity: this.profile.ethnicity, birthdate: this.profile.birthdate};
                 return this.$store.dispatch('userProfile/updateProfile', payload);
             },
             length() {

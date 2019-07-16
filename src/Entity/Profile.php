@@ -43,6 +43,16 @@ class Profile
      */
     private $posts;
 
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $ethnicity;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $birthdate;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -117,6 +127,30 @@ class Profile
                 $post->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEthnicity(): ?string
+    {
+        return $this->ethnicity;
+    }
+
+    public function setEthnicity(?string $ethnicity): self
+    {
+        $this->ethnicity = $ethnicity;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
 
         return $this;
     }

@@ -1,14 +1,24 @@
 <template>
-
-        <div v-if="login" class="main text-center flex-column">
-            <p @click="login=false">Not account yet ? create one</p>
-            <login></login>
-        </div>
-        <div v-else class="main text-center flex-column">
-            <p @click="login=true">Already an account ? Login here !</p>
-            <register></register>
-        </div>
-
+    <v-content>
+        <v-container fluid fill-height>
+            <v-layout align-center justify-center>
+                <v-flex xs12 sm8 md4>
+                    <v-card class="elevation-12" v-if="login">
+                        <login></login>
+                        <v-toolbar dark>
+                            <v-toolbar-title @click="login=false">Not account yet ? create one</v-toolbar-title>
+                        </v-toolbar>
+                    </v-card>
+                    <v-card class="elevation-12" v-else>
+                        <register></register>
+                        <v-toolbar dark>
+                            <v-toolbar-title @click="login=true">Already an account ? Sign in</v-toolbar-title>
+                        </v-toolbar>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </v-content>
 </template>
 
 <script>
